@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome')->name('home');
+Route::resource('cars', CarController::class)->withTrashed();
+Route::resource('authors', AuthorController::class)->withTrashed();
+Route::resource('posts', PostController::class)->withTrashed();
+Route::resource('locations', LocationController::class)->withTrashed();
