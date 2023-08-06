@@ -22,4 +22,8 @@ class Image extends Model
     public function post() {
         return $this->belongsTo('App\Post');
     }
+
+    public function imageable(){
+        return $this->morphTo();
+    }
 }

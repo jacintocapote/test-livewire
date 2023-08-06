@@ -15,7 +15,7 @@ class Author extends Model
     /**
      * Get the images associated to one Author.
      */
-    public function images(): HasMany {
-        return $this->hasMany(Image::class);
+    public function images() {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

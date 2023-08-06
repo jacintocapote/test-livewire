@@ -26,5 +26,6 @@
 
     <body>
         @yield('body')
+        @livewire('livewire-ui-modal')
     </body>
 </html>

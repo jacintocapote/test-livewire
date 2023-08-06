@@ -24,9 +24,10 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+        "./node_modules/@themesberg/flowbite/**/*.js"
     ],
     plugins: [
         require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        require('@tailwindcss/typography')
     ],
 }

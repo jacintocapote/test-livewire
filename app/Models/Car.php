@@ -15,7 +15,15 @@ class Car extends Model
     /**
      * Get the images associated to one car.
      */
-    public function images(): HasMany {
-        return $this->hasMany(Image::class);
+    public function images() {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function name() {
+        return $this->brand . ' ' . $this->model;
+    }
+
+    public function type() {
+        return 'Car';
     }
 }
