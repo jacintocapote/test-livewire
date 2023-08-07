@@ -16,6 +16,11 @@ class ImageItem extends Component
         $this->emitUp('imageUpdates');
     }
 
+    public function favorite() {
+        $this->item->favorite = $this->item->favorite ? 0 : 1;
+        $this->item->update();
+    }
+
     public function render()
     {
         return view('livewire.image-item');

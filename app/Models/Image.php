@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'filepath', 'alt'];
+    protected $fillable = ['name', 'filepath', 'alt', 'favorite'];
 
     public function car() {
         return $this->belongsTo('App\Car');

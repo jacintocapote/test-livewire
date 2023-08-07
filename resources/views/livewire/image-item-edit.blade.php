@@ -1,25 +1,23 @@
 <x-modal form-action="update">
     <x-slot name="title">
-     Image: {{ $image->id }}
-     <button wire:click="$emit('closeModal', true)">Close</button>
+        <div class="text-white">
+            <button class="float-right" wire:click="$emit('closeModal', true)">X</button>
+        </div>
     </x-slot>
 
     <x-slot name="content">
-        <form class="my-6" wire:submit.prevent="save">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" wire:model="name">
-                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-            <div class="form-group">
-                <label for="name">Alt</label>
-                <input type="text" class="form-control" id="alt" wire:model="alt" value="{{ $image->alt }}">
-                @error('alt') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-        </form>  
+        <span class="text-left">Image: {{ $image->id }}</span>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="text-white max-h-40 min-w-text-form placeholder-white backdrop-blur-sm bg-white/20 rounded-lg" maxlength="256" size="34" required id="name" placeholder="" wire:model="name">
+        </div>
+        <div class="form-group">
+            <label for="alt">Alt</label>
+            <input type="text" class="text-white max-h-40 min-w-text-form placeholder-white backdrop-blur-sm bg-white/20 rounded-lg" maxlength="256" size="34" required id="alt" placeholder="" wire:model="alt">
+        </div>
     </x-slot>
 
     <x-slot name="buttons">
-        <button wire:click="update">Save</button>
+        <button class="text-center min-w-button-upload bg-purple text-white py-2 px-4 rounded-3xl" wire:click="update">SAVE</button>
     </x-slot>
 </x-modal>

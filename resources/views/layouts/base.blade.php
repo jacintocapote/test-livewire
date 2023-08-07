@@ -14,6 +14,9 @@
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
         <!-- Fonts -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+        </style>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])

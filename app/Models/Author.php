@@ -18,4 +18,12 @@ class Author extends Model
     public function images() {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    public function name() {
+        return $this->name . ' ' . $this->age;
+    }
+
+    public function type() {
+        return 'Author';
+    }
 }

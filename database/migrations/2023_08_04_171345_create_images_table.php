@@ -16,15 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('filepath');
             $table->string('alt');
+            $table->boolean('favorite')->default(0);
             $table->morphs('imageable');
-            //$table->unsignedBigInteger('imageable_id');
-            //$table->string('imageable_type');
-            //$table->unsignedBigInteger('car_id');
-            //$table->unsignedBigInteger('author_id');
-            //$table->unsignedBigInteger('post_id');
-            //$table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
-            //$table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
-            //$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
         });
     }

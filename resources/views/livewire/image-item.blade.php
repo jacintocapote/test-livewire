@@ -1,19 +1,23 @@
-<div class="rounded-lg shadow-lg bg-gray-600 w-full flex flex-row flex-wrap p-3 antialiased" style="
+<div class="mb-40 min-w-image-card min-h-image-card max-w-image-card max-h-image-card bg-center bg-no-repeat bg-cover rounded-lg" style="
 background-image: url('{{'/storage/' . $item->filepath }}');
-background-repeat: no-repat;
-background-size: cover;
-background-blend-mode: multiply;
 ">
-    <div class="w-full h-[50vh] bg-cover bg-center">
-        <div class="w-full h-50 flex  justify-center items-center backdrop-blur-md">
-            <span class="text-black w-1/2 text-center flex flex-nowrap">
-                <button wire:click="$emit('openModal', 'image-item-edit', {{ json_encode(['image' => $item->id]) }})" class="bg-stone-100 hover:bg-stone-300 text-stone-700 py-2 px-4 rounded-full">
-                    Manage
-                </button>
-                <button wire:click="delete" class="bg-red-300 hover:bg-red-500 text-stone-700 py-2 px-4 rounded-full">
-                    Delete
-                </button>
-            </span>
+    @if($item->favorite)
+        <div class="w-10 h-10 bg-purple rounded-full my-4 mx-5 float-right">
+            <img wire:click="favorite" src="/images/heart.svg" width="19px" height="18px" class="pt-3 mx-auto" />
+        </div>
+    @else
+        <div class="w-10 h-10 bg-greyaction rounded-full my-4 mx-5 float-right">
+            <img wire:click="favorite" src="/images/heart-unfill.svg" width="19px" height="18px" class="pt-3 mx-auto" />
+        </div>
+    @endif
+    <div class="relative w-auto bg-cover bg-center rounded-sm">
+        <div class="mx-1.5 mt-actions min-h-image-actions justify-center items-center backdrop-blur-md flex flex-nowrap rounded-lg">
+            <button wire:click="$emit('openModal', 'image-item-edit', {{ json_encode(['image' => $item->id]) }})" class="mx-2 min-h-image-button bg-stone-100 hover:bg-stone-300 text-stone-700 px-9 rounded-full">
+                Manage
+            </button>
+            <button wire:click="delete" class=" min-h-image-button text-white bg-delete hover:bg-red-500 px-9 mx-2 rounded-full">
+                Delete
+            </button>
         </div>
     </div>
 </div>

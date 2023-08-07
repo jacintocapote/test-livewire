@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Image;
 use Livewire\Component;
+use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 class ImageGallery extends Component
@@ -13,28 +14,43 @@ class ImageGallery extends Component
     protected $listeners = ['imageUpdates' => 'refresh'];
     public $instance;
     public $image;
+    public $name;
 
     public function save()
     {
+        dd($this->name);
+       $this->validate([
+            'image' => 'image|max:2048', // 2MB Max
+        ]);
+ 
+        $fileName = $this->image->getClientOriginalName();
+        $filePath = $this->image->storeAs('uploads', $fileName, 'public');
+
+        $this->instance->images()->firstOrCreate(
+            ['filepath' => $filePath],
+            [
+                'name' => $this->name,
+                'filepath' => $filePath,
+                'alt' => '',
+            ]
+        );
+        $this->instance->refresh();
+    }
+
+    public function updateImage()
+    {
+        dd('hola jacinto');
         $this->validate([
             'image' => 'image|max:2048', // 2MB Max
         ]);
  
         $fileName = $this->image->getClientOriginalName();
         $filePath = $this->image->storeAs('uploads', $fileName, 'public');
-        /*$imageModel = new Image(
-            [
-                'name' => $fileName,
-                'filepath' => $filePath,
-                'alt' => '',
-            ]
-        );*/
-        //$images = $this->instance->images()->toArray;
-        //$images = array_merge($images, [$imageModel]);
+
         $this->instance->images()->firstOrCreate(
             ['filepath' => $filePath],
             [
-                'name' => $fileName,
+                'name' => $this->name,
                 'filepath' => $filePath,
                 'alt' => '',
             ]

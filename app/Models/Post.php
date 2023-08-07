@@ -18,4 +18,12 @@ class Post extends Model
     public function images() {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    public function name() {
+        return $this->title;
+    }
+
+    public function type() {
+        return 'Post';
+    }
 }
