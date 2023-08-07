@@ -11,42 +11,30 @@ class ImageGallery extends Component
 {
     use WithFileUploads;
 
-    protected $listeners = ['imageUpdates' => 'refresh'];
+    protected $listeners = [
+        'imageUpdates' => 'refresh',
+        'uploadedFile' => 'save',
+    ];
     public $instance;
     public $image;
     public $name;
 
-    public function save()
+    public function finishUpload($name, $tmpPath, $isMultiple) 
     {
-        dd($this->name);
-       $this->validate([
-            'image' => 'image|max:2048', // 2MB Max
-        ]);
+        $files = collect($tmpPath)->map(function ($i) {
+            return TemporaryUploadedFile::createFromLivewire($i);
+        })->toArray();
+        $this->emitSelf('upload:finished', $name, collect($files)->map->getFilename()->toArray());
  
-        $fileName = $this->image->getClientOriginalName();
-        $filePath = $this->image->storeAs('uploads', $fileName, 'public');
+        $this->image = $files[0];
 
-        $this->instance->images()->firstOrCreate(
-            ['filepath' => $filePath],
-            [
-                'name' => $this->name,
-                'filepath' => $filePath,
-                'alt' => '',
-            ]
-        );
-        $this->instance->refresh();
-    }
-
-    public function updateImage()
-    {
-        dd('hola jacinto');
+        //Before associate we validate.
         $this->validate([
-            'image' => 'image|max:2048', // 2MB Max
+            'image' => 'image|max:2048|dimensions:min_width=330,min_height=300',
         ]);
- 
+
         $fileName = $this->image->getClientOriginalName();
         $filePath = $this->image->storeAs('uploads', $fileName, 'public');
-
         $this->instance->images()->firstOrCreate(
             ['filepath' => $filePath],
             [
@@ -56,7 +44,7 @@ class ImageGallery extends Component
             ]
         );
         $this->instance->refresh();
-    }
+    } 
 
     public function refresh()
     {

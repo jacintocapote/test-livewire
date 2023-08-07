@@ -15,7 +15,8 @@ module.exports = {
                 purple: "#3F54D1",
                 delete: '#FF7777',
                 error: '#FF9F9F',
-                greyaction: '#5a5a5a80'
+                greyaction: '#5a5a5a80',
+                scroll: "#00000080"
             },
             maxWidth: {
                 'image-card': '336px',  
@@ -26,6 +27,7 @@ module.exports = {
                 'image-button': '30px',
                 'image-card': '336px',
                 'modal': '385px',
+                'gallery-container': '644px',
             },
             minWidth: {
                 'gallery-container': '1248px',
@@ -44,6 +46,7 @@ module.exports = {
                 'header-bottom': '18px',
                 'header-top': '80px',
                 'text-form': '312px',
+                '9': '9px',
                 '16': '16px',
                 '40': '40px',
                 '60': '60px',

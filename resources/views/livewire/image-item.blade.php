@@ -10,8 +10,8 @@ background-image: url('{{'/storage/' . $item->filepath }}');
             <img wire:click="favorite" src="/images/heart-unfill.svg" width="19px" height="18px" class="pt-3 mx-auto" />
         </div>
     @endif
-    <div class="relative w-auto bg-cover bg-center rounded-sm">
-        <div class="mx-1.5 mt-actions min-h-image-actions justify-center items-center backdrop-blur-md flex flex-nowrap rounded-lg">
+    <div class="relative w-auto bg-cover bg-center rounded-b-sm pt-9">
+        <div class="mt-actions min-h-image-actions justify-center items-center backdrop-blur-md flex flex-nowrap rounded-b-lg">
             <button wire:click="$emit('openModal', 'image-item-edit', {{ json_encode(['image' => $item->id]) }})" class="mx-2 min-h-image-button bg-stone-100 hover:bg-stone-300 text-stone-700 px-9 rounded-full">
                 Manage
             </button>

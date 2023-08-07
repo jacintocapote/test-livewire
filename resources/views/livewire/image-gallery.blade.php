@@ -30,44 +30,26 @@
                 <span class="float-right pt-1 min-w-back-list text-right">Back To {{ $instance->type() }} List</span>
             </a>
         </div>
-        <div class="backdrop-blur-sm bg-white/20 rounded-lg min-h-gallery-container min-w-gallery-container">
-            <div class="overflow-auto grid grid-cols-3 gap-0 pt-40 ml-60">
-                @foreach ($instance->images as $item)
-                    <livewire:image-item :item="$item" wire:key="image- {{ $item->id }}" />
-                @endforeach
+        <div class="gallery-container backdrop-blur-sm bg-white/20 rounded-lg min-h-gallery-container min-w-gallery-container">
+            <div class="pt-40">
+                <div class="overflow-auto grid grid-cols-3 gap-0 ml-60 mr-40 max-h-gallery-container">
+                    @foreach ($instance->images as $item)
+                        <livewire:image-item :item="$item" wire:key="image- {{ $item->id }}" />
+                    @endforeach
+                </div>
             </div>
         </div>
         <div class="mt-16">
-            <form class="my-6 flex flex-nowrap" wire:submit.prevent="save">
+            <form class="my-6 flex flex-nowrap">
                 <input type="text" class="text-white max-h-40 min-w-text-form placeholder-white backdrop-blur-sm bg-white/20 rounded-lg" maxlength="256" size="34" required id="name" placeholder="Text" wire:model="name">
-                <div x-data="fileUpload()">
-                    <label class="min-w-button-upload flex flex-col items-center justify-center bg-transparent cursor-pointer ml-16"  for="file-upload">
-                        <div class="flex flex-nowrap">
-                            <span class="text-center min-w-button-upload bg-purple text-white py-2 px-4 rounded-3xl">UPLOAD</span>
-                            @error('image') <span class="error text-error text-xs ml-16 text-center pt-3">{{ $message }}</span> @enderror
-                        </div>
-                    </label>
-                    <input type="file" id="file-upload" wire:model="image" class="hidden" /> 
-                </div>            
-                <button id="submit-add-image" x-ref="addimage">Save Photo</button>
+                <label class="min-w-button-upload flex flex-col items-center justify-center bg-transparent cursor-pointer ml-16"  for="file-upload">
+                    <div class="flex flex-nowrap">
+                        <span class="text-center min-w-button-upload bg-purple text-white py-2 px-4 rounded-3xl">UPLOAD</span>
+                        @error('image') <span class="error text-error text-xs ml-16 text-center pt-3">{{ $message }}</span> @enderror
+                    </div>
+                </label>
+                <input type="file" id="file-upload" wire:model="image" class="hidden" />           
             </form> 
-            <script>
-                function fileUpload() {
-                    return {
-                        isDropping: false,
-                        isUploading: false,
-                        progress: 0,
-                        handleFileSelect(event) { 
-                            if (event.target.files.length) {
-                                console.log(event.target.files)
-                                //$refs.addimage.click()
-                                //$this.('#submit-add-image').click()
-                                $wire.saveImage()
-                            }
-                        }
-                    }
-                }
-            </script> 
         </div>
     </div>
 </div>

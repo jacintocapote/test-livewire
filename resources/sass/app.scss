@@ -53,3 +53,31 @@
 [x-cloak] {
     display: none;
 }
+
+
+/* Scrollbar */
+.gallery-container {
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-thumb,
+    ::-webkit-scrollbar-track { 
+        width: 8px;
+        border: none;
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-button,
+    ::-webkit-scrollbar-track-piece,
+    ::-webkit-scrollbar-corner,
+    ::-webkit-resizer {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="8" height="79" viewBox="0 0 8 79" fill="none"><path d="M4 4L4 75" stroke="white" stroke-width="7" stroke-linecap="round"/></svg>') no-repeat;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="4" height="650" viewBox="0 0 4 650" fill="none"><path d="M2 2L1.99997 648" stroke="black" stroke-opacity="0.15" stroke-width="3" stroke-linecap="round"/></svg>') repeat-y center;
+    }
+}
