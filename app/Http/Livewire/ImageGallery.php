@@ -33,6 +33,12 @@ class ImageGallery extends Component
             'image' => 'image|max:2048|dimensions:min_width=330,min_height=300',
         ]);
 
+        if (!$this->name) {
+            $this->addError('image', 'Name is required');
+            $this->instance->refresh();
+            return;
+        }
+
         $fileName = $this->image->getClientOriginalName();
         $filePath = $this->image->storeAs('uploads', $fileName, 'public');
         $this->instance->images()->firstOrCreate(
