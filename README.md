@@ -10,6 +10,7 @@ This project is ready for use with sail. Steps for running over local are:
  - `cp .env.examle .env`
  - `./vendor/bin/sail up`
  - `./vendor/bin/sail shell` and execute `php artisan storage:link` and `php artisan migrate:fresh --seed`
+ -  `./vendor/bin/sail shell` and execute `npm install` and `npm run dev`. This is the method to autorefresh all CSS/....
 
  You should see over localhost domain the project.
 
