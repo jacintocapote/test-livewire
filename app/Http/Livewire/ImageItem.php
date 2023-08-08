@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\File;
 
 class ImageItem extends Component
 {
@@ -12,6 +13,7 @@ class ImageItem extends Component
     public $alt;
 
     public function delete() {
+        File::delete($this->item->filepath);
         $this->item->delete();
         $this->emitUp('imageUpdates');
     }

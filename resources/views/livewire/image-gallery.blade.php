@@ -2,7 +2,7 @@
     <div wire:key="gallery-{{ $instance->id }}" class="mx-auto">
         <div class="flow-root mb-header-bottom pt-header-top">
             <h3 class="float-left text-white text-xl">Image Gallery for {{ $instance->type() }}: {{ $instance->name() }}</h3>
-            <a href="/" class="float-right text-white text-xs">
+            <a href="/{{ strtolower($instance->plural()) }}" class="float-right text-white text-xs">
                 <div class=" float-left">
                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none" class="absolute m-2 ml-2.5">
                         <path d="M7 1L2 5.5L7 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
@@ -30,7 +30,7 @@
                 <span class="float-right pt-1 min-w-back-list text-right">Back To {{ $instance->plural() }} List</span>
             </a>
         </div>
-        <div class="gallery-container backdrop-blur-sm bg-white/20 rounded-lg min-h-gallery-container min-w-gallery-container">
+        <div class="gallery-container backdrop-blur-sm bg-white/20 rounded-lg w-auto h-auto lg:min-h-gallery-container lg:min-w-gallery-container">
             <div class="pt-40">
                 <div class="overflow-auto grid grid-cols-3 gap-0 ml-60 mr-40 max-h-gallery-container">
                     @foreach ($instance->images as $item)
