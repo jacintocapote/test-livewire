@@ -57,4 +57,4 @@ If the model doesn't have these information the plugin won't work.
 
 ## NOTES
 
-We have a custom patch for modal module. The patch is over patches module and applied via composer to allow remove white background and add some custom tailwind code to modal template.
+The project has a custom patch for modal module. The patch is over patches module and applied via composer to allow remove white background and add some custom tailwind code to modal template.
