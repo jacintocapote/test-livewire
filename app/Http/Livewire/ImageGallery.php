@@ -28,9 +28,9 @@ class ImageGallery extends Component
  
         $this->image = $files[0];
 
-        //Before associate we validate.
+        //Before associate we validate size.
         $this->validate([
-            'image' => 'image|max:2048|dimensions:min_width=330,min_height=300',
+            'image' => 'image|max:2048',
         ]);
 
         if (!$this->name) {

@@ -63,6 +63,7 @@ module.exports = {
                 '63': '63px',
                 '66': '66px',
                 '79': '79px',
+                '274': '274px',
                 '320': '320px',
             },
             backdropBlur: {

@@ -1,6 +1,6 @@
 @props(['formAction' => false])
 
-<div class="font-raleway text-white backdrop-blur-modal bg-white/20 rounded-lg w-modalw h-modalh">
+<div class="font-raleway modal-body text-white backdrop-blur-modal bg-white/20 rounded-lg w-modalw h-modalh">
     @if($formAction)
         <form class="mt-320" wire:submit.prevent="{{ $formAction }}">
     @endif
