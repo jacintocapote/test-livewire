@@ -6,9 +6,9 @@
 ## Setup
 
 This project is ready for use with sail. Steps for running over local are:
- - composer install
- - ./vendor/bin/sail up
- - ./vendor/bin/sail shell and execute php artisan storage:link and php artisan migrate:fresh --seed
+ - `composer install`
+ - `./vendor/bin/sail up`
+ - `./vendor/bin/sail` shell and execute `php artisan storage:link` and php artisan `migrate:fresh --seed`
 
  You should see over localhost domain the project.
 
@@ -45,7 +45,7 @@ Has a seed to generate 50 random posts.
 ## Livewire
 
 For gallery we have a custom livewire component. image-gallery. The method to call this component is:
-<livewire:image-gallery :instance="$object">
+`<livewire:image-gallery :instance="$object">`
 The component needs to have next fields and methods:
 - Relation to image model (multiple) with name images.
 - Method (name, type, plural). 
