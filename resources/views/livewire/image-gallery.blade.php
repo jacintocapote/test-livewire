@@ -27,7 +27,7 @@
                         </defs>
                         </svg>
                 </div>
-                <span class="float-right pt-1 min-w-back-list text-right">Back To {{ $instance->type() }} List</span>
+                <span class="float-right pt-1 min-w-back-list text-right">Back To {{ $instance->plural() }} List</span>
             </a>
         </div>
         <div class="gallery-container backdrop-blur-sm bg-white/20 rounded-lg min-h-gallery-container min-w-gallery-container">
@@ -39,12 +39,12 @@
                 </div>
             </div>
         </div>
-        <div class="mt-16">
+        <div class="mt-40">
             <form class="my-6 flex flex-nowrap">
-                <input type="text" class="text-white max-h-40 min-w-text-form placeholder-white backdrop-blur-sm bg-white/20 rounded-lg" maxlength="256" size="34" required id="name" placeholder="Text" wire:model="name">
+                <input type="text" class="mt-3p text-white max-h-40 min-w-text-form placeholder-white backdrop-blur-sm bg-white/20 rounded-lg" maxlength="256" size="34" required id="name" placeholder="Text" wire:model="name">
                 <label class="min-w-button-upload flex flex-col items-center justify-center bg-transparent cursor-pointer ml-16"  for="file-upload">
                     <div class="flex flex-nowrap">
-                        <span class="text-center min-w-button-upload bg-purple text-white py-2 px-4 rounded-3xl">UPLOAD</span>
+                        <span class="h-43 text-center min-w-button-upload bg-purple text-white py-2 px-4 rounded-3xl">UPLOAD</span>
                         @error('image') <span class="error text-error text-xs ml-16 text-center pt-3">{{ $message }}</span> @enderror
                     </div>
                 </label>

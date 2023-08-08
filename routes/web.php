@@ -18,7 +18,15 @@ use App\Http\Controllers\LocationController;
 */
 
 Route::view('/', 'welcome')->name('home');
-Route::resource('cars', CarController::class)->withTrashed();
-Route::resource('authors', AuthorController::class)->withTrashed();
-Route::resource('posts', PostController::class)->withTrashed();
-Route::resource('locations', LocationController::class)->withTrashed();
+Route::resource('cars', CarController::class)->only([
+  'index', 'show'
+]);
+Route::resource('authors', AuthorController::class)->only([
+  'index', 'show'
+]);
+Route::resource('posts', PostController::class)->only([
+  'index', 'show'
+]);
+Route::resource('locations', LocationController::class)->only([
+  'index'
+]);
