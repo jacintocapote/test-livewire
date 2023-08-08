@@ -7,6 +7,7 @@
 
 This project is ready for use with sail. Steps for running over local are:
  - `composer install`
+ - `cp .env.examle .env`
  - `./vendor/bin/sail up`
  - `./vendor/bin/sail shell` and execute `php artisan storage:link` and `php artisan migrate:fresh --seed`
 
