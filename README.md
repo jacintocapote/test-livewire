@@ -46,7 +46,7 @@ Has a seed to generate 50 random posts.
 
 ## Livewire
 
-For gallery we have a custom livewire component. image-gallery. The method to call this component is:
+For gallery the project has a custom livewire component. image-gallery. The method to call this component is:
 `<livewire:image-gallery :instance="$object">`
 The component needs to have next fields and methods:
 - Relation to image model (multiple) with name images.
