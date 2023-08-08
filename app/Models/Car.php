@@ -19,11 +19,24 @@ class Car extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    /**
+     * Method to generate name based some fields.
+     */
     public function name() {
         return $this->brand . ' ' . $this->model;
     }
 
+    /**
+     * Method to get name of this model.
+     */
     public function type() {
         return 'Car';
+    }
+
+    /**
+     * Method to get plural name of this model.
+     */
+    public function plural() {
+        return 'Cars';
     }
 }

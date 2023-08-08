@@ -16,7 +16,7 @@ module.exports = {
                 delete: '#FF7777',
                 error: '#FF9F9F',
                 greyaction: '#5a5a5a80',
-                scroll: "#00000080"
+                scroll: "#00000080",
             },
             maxWidth: {
                 'image-card': '336px',  
@@ -34,6 +34,7 @@ module.exports = {
                 'back-list': '100px',
                 'button-upload': '176px',
                 'modal': '560px',
+                'label-form': '80px',
             },
             minHeight: {
                 'image-actions': '68px',
@@ -46,13 +47,25 @@ module.exports = {
                 'header-bottom': '18px',
                 'header-top': '80px',
                 'text-form': '312px',
+                'modalw': '560px',
+                'modalh': '385px',
+                'button': '123px',
+                '7': '7px',
                 '9': '9px',
+                '13': '13px',
                 '16': '16px',
+                '28': '28px',
+                '34': '34px',
                 '40': '40px',
                 '60': '60px',
                 '63': '63px',
+                '66': '66px',
                 '79': '79px',
                 '320': '320px',
+            },
+            backdropBlur: {
+                soft: '5px',
+                modal: '25px',
             }
         },
     },

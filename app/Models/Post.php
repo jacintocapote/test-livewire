@@ -19,11 +19,24 @@ class Post extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    /**
+     * Method to generate name based some fields.
+     */
     public function name() {
         return $this->title;
     }
 
+    /**
+     * Method to get name of this model.
+     */
     public function type() {
         return 'Post';
+    }
+
+    /**
+     * Method to get plural name of this model.
+     */
+    public function plural() {
+        return 'Posts';
     }
 }

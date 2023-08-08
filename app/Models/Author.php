@@ -19,11 +19,24 @@ class Author extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    /**
+     * Method to generate name based some fields.
+     */
     public function name() {
         return $this->name . ' ' . $this->age;
     }
 
+    /**
+     * Method to get name of this model.
+     */
     public function type() {
         return 'Author';
+    }
+
+    /**
+     * Method to get plural name of this model.
+     */
+    public function plural() {
+        return 'Authors';
     }
 }

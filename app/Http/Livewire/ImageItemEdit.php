@@ -25,6 +25,19 @@ class ImageItemEdit extends ModalComponent
             'name' => $this->name,
             'alt' => $this->alt,
         ]);
+
+        if (!$this->name) {
+            $this->addError('image', 'Name is required');
+            $this->image->refresh();
+            return;
+        }
+
+        if (!$this->alt) {
+            $this->addError('alt', 'Alt is required');
+            $this->image->refresh();
+            return;
+        }
+
         $this->closeModal();
     }
 

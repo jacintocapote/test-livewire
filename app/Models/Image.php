@@ -11,18 +11,6 @@ class Image extends Model
 
     protected $fillable = ['name', 'filepath', 'alt', 'favorite'];
 
-    public function car() {
-        return $this->belongsTo('App\Car');
-    }
-
-    public function author() {
-        return $this->belongsTo('App\Author');
-    }
-
-    public function post() {
-        return $this->belongsTo('App\Post');
-    }
-
     public function imageable(){
         return $this->morphTo();
     }
